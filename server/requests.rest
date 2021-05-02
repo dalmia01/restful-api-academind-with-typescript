@@ -3,6 +3,14 @@ GET http://localhost:3000/products
 ###
 
 POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "id":"5e64b9fa-0904-4b46-a0ad-5f02d2e50bde",
+    "title":"Maggi",
+    "description":"every evening snack",
+    "amount":"22"
+}
 
 
 ###
