@@ -9,8 +9,10 @@ productsRouter.get("/", (req: Request, res: Response) => {
 });
 
 productsRouter.post("/", (req: Request, res: Response) => {
+    const { id, title, description, amount } = req.body;
+    console.info(`product to add :: id -- ${id} , title -- ${title} , description -- ${description} , amount -- ${amount}`);
     res.json({
-        message: "post a product",
+        message: `product ${title} of amount ${amount} which is a ${description} is added.`,
     });
 });
 
