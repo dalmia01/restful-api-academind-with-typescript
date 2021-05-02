@@ -1,40 +1,16 @@
 import { Request, Response, Router } from "express";
+import { getAllProducts, addProduct, getSpecificProduct, modifyProduct, deleteProduct } from "../controllers/products/products.controllers";
 
 const productsRouter = Router();
 
-productsRouter.get("/", (req: Request, res: Response) => {
-    res.json({
-        message: "getting all products",
-    });
-});
+productsRouter.get("/", getAllProducts);
 
-productsRouter.post("/", (req: Request, res: Response) => {
-    const { id, title, description, amount } = req.body;
-    console.info(`product to add :: id -- ${id} , title -- ${title} , description -- ${description} , amount -- ${amount}`);
-    res.json({
-        message: `product ${title} of amount ${amount} which is a ${description} is added.`,
-    });
-});
+productsRouter.post("/", addProduct);
 
-productsRouter.get("/:productId", (req: Request, res: Response) => {
-    const productId = req.params.productId;
-    res.json({
-        message: `get specific product detaisl for ${productId}`,
-    });
-});
+productsRouter.get("/:productId", getSpecificProduct);
 
-productsRouter.patch("/:productId", (req: Request, res: Response) => {
-    const productId = req.params.productId;
-    res.json({
-        message: `${productId} - this product is now modified`,
-    });
-});
+productsRouter.patch("/:productId", modifyProduct);
 
-productsRouter.delete("/:productId", (req: Request, res: Response) => {
-    const productId = req.params.productId;
-    res.json({
-        message: `${productId} -- this product is now deleted`,
-    });
-});
+productsRouter.delete("/:productId", deleteProduct);
 
 export default productsRouter;

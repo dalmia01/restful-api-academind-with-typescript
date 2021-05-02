@@ -17,7 +17,7 @@ Content-Type: application/json
 Get http://localhost:3000/products/eerreeee
 
 ###
-PATCH http://localhost:3000/products/yuuur23
+PATCH http://localhost:3000/products/yuuur2322ddf
 
 ###
 DELETE http://localhost:3000/products/67eee234-908u2
