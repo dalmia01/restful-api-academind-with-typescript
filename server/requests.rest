@@ -1,0 +1,15 @@
+GET http://localhost:3000/products
+
+###
+
+POST http://localhost:3000/products
+
+
+###
+Get http://localhost:3000/products/eerreeee
+
+###
+PATCH http://localhost:3000/products/yuuur23
+
+###
+DELETE http://localhost:3000/products/67eee234-908u2
