@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { ObjectId } from "mongoose";
-import { INote, IRequestNote } from "../../types/notes.types";
+import { IRequestNote } from "../../types/notes.types";
 import NoteModel from "../../models/notes.models";
 export const getAllNotes = async (req: Request, res: Response) => {
     res.json({
