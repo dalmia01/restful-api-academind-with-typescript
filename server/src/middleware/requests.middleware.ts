@@ -5,7 +5,7 @@ export const requestMiddleware = (req: Request, res: Response, next: NextFunctio
     console.info(`request started -- ${req.method} ${req.originalUrl}`);
     res.on("finish", () => {
         const elapsedTime = new Date().getTime() - startedTime;
-        console.info(`request finished -- ${req.method} ${req.originalUrl} ${res.statusCode} ${elapsedTime}ms`);
+        console.info(`request is finished -- ${req.method} ${req.originalUrl} ${res.statusCode} ${elapsedTime}ms`);
     });
     next();
 };
