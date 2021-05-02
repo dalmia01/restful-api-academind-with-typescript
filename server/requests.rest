@@ -1,23 +1,33 @@
-GET http://localhost:3000/products
+GET http://localhost:4000/notes
 
 ###
 
-POST http://localhost:3000/products
+POST http://localhost:4000/notes
 Content-Type: application/json
 
-{
-    "id":"5e64b9fa-0904-4b46-a0ad-5f02d2e50bde",
-    "title":"Maggi",
-    "description":"every evening snack",
-    "amount":"22"
+{   
+    "userId":"608eecf763d8f44f98fd0067",
+    "title":"Nestle",
+    "description":"mainly a chocolate company",
+    "label":["chocolate"]
 }
 
 
 ###
-Get http://localhost:3000/products/eerreeee
+Get http://localhost:4000/notes/eerreeee
 
 ###
-PATCH http://localhost:3000/products/yuuur2322ddf
+PATCH http://localhost:4000/notes/yuuur2322ddf
 
 ###
-DELETE http://localhost:3000/products/67eee234-908u2
+DELETE http://localhost:4000/notes/67eee234-908u2
+
+###
+POST http://localhost:4000/sign-up
+Content-Type: application/json
+
+{
+    "username":"dalmia01",
+    "email":"dalmia@gmail.com",
+    "password":"dalmia01"
+}
