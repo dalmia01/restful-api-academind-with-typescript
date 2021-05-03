@@ -2,9 +2,21 @@ import { Request, Response } from "express";
 import { IRequestNote } from "../../types/notes.types";
 import NoteModel from "../../models/notes.models";
 export const getAllNotes = async (req: Request, res: Response) => {
-    res.json({
-        message: "getting all notes from controllers",
-    });
+    const body = req.body as Pick<IRequestNote, "userId">;
+
+    const { userId } = body;
+
+    try {
+        const notes = await NoteModel.find({ user: userId }).select("label title description user");
+        if (notes.length < 1) {
+            res.json({ mesage: "no notes found!" });
+        }
+        res.json({ message: "all notes", notes });
+    } catch (err) {
+        res.json({
+            error: err.message || "some error occured, while getting all notes!",
+        });
+    }
 };
 
 export const addNote = async (req: Request, res: Response): Promise<void> => {
@@ -12,15 +24,19 @@ export const addNote = async (req: Request, res: Response): Promise<void> => {
 
     const { title, description, label, userId } = body;
 
-    const addNote = new NoteModel({});
-    addNote.title = title;
-    addNote.description = description;
-    addNote.label = label || [];
-    addNote.user = userId;
+    try {
+        const addNote = new NoteModel({});
+        addNote.title = title;
+        addNote.description = description;
+        addNote.label = label || [];
+        addNote.user = userId;
 
-    await addNote.save();
+        await addNote.save();
 
-    res.json({ message: "note added" });
+        res.json({ message: "note added" });
+    } catch (err) {
+        res.json({ error: err.message || "some error occured while adding a note" });
+    }
 };
 
 export const getNote = async (req: Request, res: Response) => {

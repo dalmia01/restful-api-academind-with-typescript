@@ -52,7 +52,7 @@ export const signIn = async (req: Request, res: Response): Promise<void> => {
             throw new Error("wrong credentials");
         }
 
-        const jwtAccessToken = assignJWTAccessToken(username);
+        const jwtAccessToken = assignJWTAccessToken(username, user.id);
 
         if (!jwtAccessToken) {
             throw new Error("Some error occured. Please try again!");
