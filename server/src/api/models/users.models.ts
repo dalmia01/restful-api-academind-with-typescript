@@ -7,6 +7,7 @@ const UserSchema: Schema = new Schema(
         email: { type: String, required: true },
         password: { type: String, required: true },
         notes: [{ type: Schema.Types.ObjectId, ref: "notes" }],
+        profileImage: { type: String },
     },
     { timestamps: true }
 );

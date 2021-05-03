@@ -33,9 +33,9 @@ POST {{host}}/sign-up
 Content-Type: application/json
 
 {
-    "username":"dalmia0123",
-    "email":"dalmia0123@gmail.com",
-    "password":"dalmia0123"
+    "username":"dalmia012345",
+    "email":"dalmia012345@gmail.com",
+    "password":"dalmia012345"
 }
 
 ###

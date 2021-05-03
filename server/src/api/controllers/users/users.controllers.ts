@@ -4,6 +4,8 @@ import UserModel from "../../models/users.models";
 import { hashPassword, assignJWTAccessToken, verifyPassword } from "../../../helpers/common.helpers";
 
 export const signUp = async (req: Request, res: Response): Promise<void> => {
+    const filePath = req.file && req.file.path;
+
     const body = req.body as Pick<IUser, "username" | "email" | "password">;
 
     const { username, email, password } = body;
@@ -21,6 +23,7 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
             username,
             email,
             password: hashedPassword,
+            profileImage: filePath,
         });
 
         newUser = await newUser.save();
