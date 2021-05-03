@@ -12,7 +12,7 @@ export const verifyPassword = async (inputPassword: string, hashedPassword: stri
     return isVerified;
 };
 
-export const assignJWTAccessToken = (username: string): string => {
-    const jwtAccessToken = sign({ username }, process.env.JWT_SECRET_KEY, { expiresIn: "2h" });
+export const assignJWTAccessToken = (username: string, id: string): string => {
+    const jwtAccessToken = sign({ username, id }, process.env.JWT_SECRET_KEY, { expiresIn: "2h" });
     return jwtAccessToken;
 };
