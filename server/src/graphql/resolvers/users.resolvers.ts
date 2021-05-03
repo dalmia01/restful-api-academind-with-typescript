@@ -1,6 +1,6 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import UsersModel from "../../api/models/users.models";
-import { UserError } from "../schemas/error.schemas";
+import { hashPassword } from "../../helpers/common.helpers";
 import { User, UserRegisterInput } from "../schemas/users.schemas";
 
 @Resolver((of) => User)
@@ -20,10 +20,17 @@ export class UserResolver {
             };
         }
 
+        const hashedPassword = await hashPassword(password);
+
+        if (!hashedPassword)
+            return {
+                error: "Some error occured while hashing password, try again later!",
+            };
+
         const newUser = new UsersModel();
         newUser.username = username;
         newUser.email = email;
-        newUser.password = password;
+        newUser.password = hashedPassword;
 
         const userResult = await newUser.save();
 
