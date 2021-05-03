@@ -1,0 +1,23 @@
+type AuthenticateRegisterResponse {
+    id: ID!
+    username: String!
+}
+
+type AuthenticateLoginResponse implements AuthenticateRegisterResponse {
+    token: String!
+}
+
+input userInput {
+    username: String!
+    email: String!
+    password: String!
+    profileImage: String
+}
+
+type Query {
+    deleteUser(id: ID!): String!
+}
+
+type Mutation {
+    signUpUser(input: userInput): AuthenticateRegisterResponse!
+}
