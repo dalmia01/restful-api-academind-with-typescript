@@ -1,26 +1,32 @@
 @host=http://localhost:4000
 
+### get all notes
 GET {{host}}/notes
+
+### get specific user notes
+
+GET {{host}}/notes/608fae0f5169ee4b54f2f889
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbG1pYTAxMiIsImlkIjoiNjA4ZmE1YzFiYmFiZDEzMjg4OGY4MWRhIiwiaWF0IjoxNjIwMDI5NjQ5LCJleHAiOjE2MjAwMzY4NDl9.bkOb1ByhT7epIri3HDdwUKkPYgKTQYAJv9XwvCc38yA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbG1pYTAxMiIsImlkIjoiNjA4ZmU4OTBmMTEwYzg0YWMwNTUxNzQ2IiwiaWF0IjoxNjIwMDQ1MTIxLCJleHAiOjE2MjAwNTIzMjF9.sVNWQlUakXJ9aJJT9ZPG6W_veAd9NfVDvoUe4h8Z6Yk
 
 {
     "userId":"608fae0f5169ee4b54f2f889"
 }
-###
+
+### add a note
 
 POST {{host}}/notes
 Content-Type: application/json
 
 {   
     "userId":"608fae0f5169ee4b54f2f889",
-    "title":"Resful api",
-    "description":"a service to handle backend and database from client"
+    "title":"Do you really need a second monitor to code?",
+    "description":"Many developers use a multi-monitor system. Typically, there’ll be a primary monitor for the code editor and an auxiliary monitor for additional things. So, should you invest in a secondary monitor, or is it just a fad?"
 }
 
 
 ###
-Get {{host}}/notes/eerreeee
+Get {{host}}/notes/specific-note/608faadae3af93122cc10233
 
 ###
 PATCH {{host}}/notes/yuuur2322ddf

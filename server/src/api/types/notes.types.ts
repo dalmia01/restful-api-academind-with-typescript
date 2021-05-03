@@ -12,8 +12,5 @@ export interface INote extends Document {
     title?: string;
     description: string;
     label?: string[];
-    user: {
-        type: ObjectId;
-        ref: "users";
-    };
+    user: IUser["_id"];
 }
